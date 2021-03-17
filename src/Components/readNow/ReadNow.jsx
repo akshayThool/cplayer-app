@@ -1,33 +1,33 @@
 import axios from 'axios';
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import ReadCard from '../ReadCard';
+import Card from '../card/Card';
 
 export default function ReadNow() {
-    const[readnowlist,setReadnowlist] =useState([]);
+    const [readnowlist, setReadnowlist] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:3100/news")
-        .then((res)=>{
-            setReadnowlist(res.data);
-        })
+            .then((res) => {
+                setReadnowlist(res.data);
+            })
     }, []);
     return (
-        <div className='container' >
-        <div className='row' style={{width:"max"}}>
-                    {readnowlist.map((news) => (
-                        <ReadCard
-                        urlToImage={news.urlToImage}
-                        title={news.title}
-                        author={news.author}
-                        description={news.description}
-                        url={news.url}
-                        />
-                    ))
-                    }
-                {/* <div className="col-md-6 mt-4">
+        <div className='displayContainer'>
+
+            {readnowlist.map((player) => (
+                <Card
+                    key={player.id}
+                    pid={player.id}
+                    name={player.name}
+
+                />
+            ))
+            }
+            {/* <div className="col-md-6 mt-4">
                         <AddContact addContact={saveContact}/>
                 </div> */}
-                
-        </div>
+
+
         </div>
     )
 }
