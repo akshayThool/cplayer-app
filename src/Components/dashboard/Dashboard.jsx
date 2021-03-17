@@ -5,7 +5,7 @@ import Card from '../card/Card';
 export default function Dashboard() {
 
   const [trending, setTrending] = useState([]);
-  const [readlaterdb, setReadlaterdb] = useState([]);
+  const [playerdb, setPlayerdb] = useState([]);
   // const Api=b909d678e82f454a84d8487e1da59893;
   useEffect(() => {
     axios.get("https://cricapi.com/api/fantasySquad?apikey=BOBBPOtyxcZsIuxBBpJtj9bJ0843&unique_id=1034809")
@@ -13,7 +13,7 @@ export default function Dashboard() {
         setTrending(res.data.squad);
       })
   }, []);
-  const readLater = (playerCard) => {
+  const playerDetails = (playerCard) => {
     axios
       .post('http://localhost:3100/news', playerCard, {
         headers: { 'Content-Type': 'application/json' },
@@ -21,7 +21,7 @@ export default function Dashboard() {
       .then(function (response) {
         if (response.status === 201) {
           // [...contact, response.data]
-          setReadlaterdb([...readlaterdb, response.data]);
+          setPlayerdb([...playerdb, response.data]);
         }
       })
       .catch(function (error) {
@@ -56,7 +56,7 @@ export default function Dashboard() {
             key={player.pid}
             pid={player.pid}
             name={player.name}
-            readLater={readLater}
+            playerDetails={playerDetails}
 
           />
         )))

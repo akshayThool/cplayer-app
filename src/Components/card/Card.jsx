@@ -57,8 +57,9 @@ export default function Card(props) {
       id: props.pid,
       name: props.name
     }
-    props.readLater(playerCard);
+    props.playerDetails(playerCard);
   };
+
   return (
     //     <div className="card-inline" style={{width:"17rem" ,border:"1px solid black" ,margin:"5px" }}>
     //     <div className="card-body ">
