@@ -79,7 +79,7 @@ export default function Login() {
                   value="Login" />
               </form>
               <p className="login-wrapper-footer-text">Don't have an account? </p>
-              <a href="#">Register here.</a>
+              <a href="/register">Register here.</a>
             </div>
           </div>
           <div className="col-sm-6 px-0 d-none d-sm-block">
