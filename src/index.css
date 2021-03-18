@@ -142,3 +142,94 @@ footer{
   overflow: auto;
   height: 500px;
 }
+
+.page-heading{
+  position: relative;
+  padding: 15px 25px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #d9d9d9;
+  background-color: #f2f2f2;
+}
+
+.media{
+  color: #999999;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.media-left, .media-body{
+  display: table-cell;
+  vertical-align: top;
+}
+
+.media-heading{
+  color: #555555;
+  margin-top: 50px;
+  margin-bottom: 5px;
+  margin-left: 50px;
+}
+
+.dialog-body{
+  background-color: #eee;
+}
+
+.container-ours{
+  max-width: 600px;
+}
+
+.panel{
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 27px;
+  background-color: #ffffff;
+  border-radius: 3px;
+}
+
+.profile-details{
+  padding: 30px 20px 10px 50px;
+  background: #fafafa;
+  border: 1px solid #e2e2e2;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-size: 15px;
+  text-align: justify;
+  letter-spacing: 0.2px;
+  
+  font-weight: 400;
+}
+
+.panel.panel-border{
+  border-style: solid;
+  border-width: 5px;
+  
+}
+
+.panel-heading{
+  position: relative;
+  height: 52px;
+  line-height: 49px;
+  letter-spacing: 0.2px;
+  color: #999999;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 0 8px;
+  background: #fafafa;
+  border: 1px solid #e2e2e2;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.panel-icon{
+  padding-left: 6px;
+}
+
+.panel-title{
+  padding-left: 6px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.cricket-bat-logo{  
+  width: 20x;
+  height: 20px;  
+}
