@@ -51,19 +51,19 @@ export default function Dashboard() {
     // </div>
 
     <div className="displayContainer">
-      {trending.map((news) => (
-        (news.players.map(player => (
-          <Card
-            key={player.pid}
-            pid={player.pid}
-            name={player.name}
-            readLater={savePlayer}
+      {trending.map((news) =>
+      (news.players.map(player => (
+        <Card
+          key={player.pid}
+          pid={player.pid}
+          name={player.name}
+          readLater={savePlayer}
 
 
-          />
-        )))
+        />
+      )))
 
-      ))}
+      )}
     </div>
   )
 }
