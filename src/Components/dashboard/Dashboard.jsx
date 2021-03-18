@@ -13,7 +13,8 @@ export default function Dashboard() {
         setTrending(res.data.squad);
       })
   }, []);
-  const playerDetails = (playerCard) => {
+  const savePlayer = (playerCard) => {
+    console.log("I am in the dashboard");
     axios
       .post('http://localhost:3100/news', playerCard, {
         headers: { 'Content-Type': 'application/json' },
@@ -56,7 +57,8 @@ export default function Dashboard() {
             key={player.pid}
             pid={player.pid}
             name={player.name}
-            playerDetails={playerDetails}
+            readLater={savePlayer}
+
 
           />
         )))

@@ -63,16 +63,17 @@ export default function Card(props) {
         setPlayerDetails(res.data);
         setPlayerBattingODI(res.data.data.batting.ODIs);
         setPlayerBattingListA(res.data.data.batting.listA);
-        console.log(res.data.data.batting.ODIs);
+        //console.log(res.data.data.batting.ODIs);
       })
   }, []);
 
-  //console.log(playerBattingODI);
+  console.log(playerDetails.data);
   const saveFav = () => {
     const playerCard = {
       id: props.pid,
       name: props.name
     }
+    console.log("I am here");
     //console.log(playerDetails);
     props.readLater(playerCard);
   };
@@ -113,7 +114,7 @@ export default function Card(props) {
             <Typography variant="h6" className={classes.title}>
               {playerDetails.name}
             </Typography>
-            <Button autofocus >
+            <Button autoFocus >
               <a href="" className="btn btn-outline-danger btn-sm"><i className="far fa-heart"></i></a>
             </Button>
           </Toolbar>
@@ -248,23 +249,24 @@ export default function Card(props) {
                             <td>{playerBattingListA.Inns}</td>
                             <td>{playerBattingListA.Mat}</td>
                           </tr>
-                          <tr>
-                            <th>ODI</th>
-                            {/* <td>{playerBattingODI['50']}</td>
-                            <td>{playerBattingODI['100']}</td>
-                            <td>{playerBattingODI.St}</td>
-                            <td>{playerBattingODI.Ct}</td>
-                            <td>{playerBattingODI['6s']}</td>
-                            <td>{playerBattingODI['4s']}</td>
-                            <td>{playerBattingODI.SR}</td>
-                            <td>{playerBattingODI.BF}</td>
-                            <td>{playerBattingODI.Ave}</td>
-                            <td>{playerBattingODI.HS}</td>
-                            <td>{playerBattingODI.Runs}</td>
-                            <td>{playerBattingODI.NO}</td>
-                            <td>{playerBattingODI.Inns}</td>
-                            <td>{playerBattingODI.Mat}</td> */}
-                          </tr>
+                          {playerBattingODI && playerBattingODI.length > 0 &&
+                            <tr>
+                              <th>ODI</th>
+                              <td>{playerBattingODI['50']}</td>
+                              <td>{playerBattingODI['100']}</td>
+                              <td>{playerBattingODI.St}</td>
+                              <td>{playerBattingODI.Ct}</td>
+                              <td>{playerBattingODI['6s']}</td>
+                              <td>{playerBattingODI['4s']}</td>
+                              <td>{playerBattingODI.SR}</td>
+                              <td>{playerBattingODI.BF}</td>
+                              <td>{playerBattingODI.Ave}</td>
+                              <td>{playerBattingODI.HS}</td>
+                              <td>{playerBattingODI.Runs}</td>
+                              <td>{playerBattingODI.NO}</td>
+                              <td>{playerBattingODI.Inns}</td>
+                              <td>{playerBattingODI.Mat}</td>
+                            </tr>}
                         </tbody>
                       </table>
                     </div>
