@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export default function Header() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-  <Link to="/" className="navbar-brand" >News
+  <Link to="/" className="navbar-brand" >C Player
   </Link>
    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
@@ -12,12 +12,12 @@ export default function Header() {
   <div className="collapse navbar-collapse" id="navbarNavDropdown">
     <ul className="navbar-nav">
       <li className="nav-item active">
-        <Link to="/" className="nav-link" >Dashboad </Link>
+        <Link to="/" className="nav-link" >Dashboard </Link>
       </li>
     </ul>
     <ul className="navbar-nav">
       <li className="nav-item active">
-      <Link to="/readnow" className="nav-link">Favourites</Link>
+      <Link to="/favourite" className="nav-link">Favourites</Link>
       </li>
     </ul>
   </div>
