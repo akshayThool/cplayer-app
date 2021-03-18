@@ -15,8 +15,9 @@ export default function ReadNow() {
 
     const delFav = (id) => {
         console.log("I am here");
-        axios.delete(`https://localhost:3100/news/${id}`)
+        axios.delete(`http://localhost:3100/news/${id}`)
             .then((res) => {
+                setReadnowlist(readnowlist.filter((obj) => ( obj.id !== id)));
                 alert('Deleted');
             }).catch((err) => {
                 console.log(err);

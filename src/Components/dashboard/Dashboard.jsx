@@ -14,6 +14,7 @@ export default function Dashboard() {
       })
   }, []);
   const playerDetails = (playerCard) => {
+    console.log("player Details function")
     axios
       .post('http://localhost:3100/news', playerCard, {
         headers: { 'Content-Type': 'application/json' },
@@ -50,7 +51,7 @@ export default function Dashboard() {
     // </div>
 
     <div className="displayContainer">
-      {trending.map((news) => (
+      {trending.map((news) => 
         (news.players.map(player => (
           <Card
             key={player.pid}
@@ -61,7 +62,7 @@ export default function Dashboard() {
           />
         )))
 
-      ))}
+      )}
     </div>
   )
 }

@@ -63,14 +63,15 @@ export default function FavCard(props) {
                 setPlayerDetails(res.data);
                 setPlayerBattingODI(res.data.data.batting.ODIs);
                 setPlayerBattingListA(res.data.data.batting.listA);
-                console.log(res.data.data.batting.ODIs);
+                // console.log(res.data.data.batting.ODIs);
             })
     }, []);
 
     //console.log(playerBattingODI);
     const delFav = () => {
-
+        console.log("Inside delFav favorite Card")
         //console.log(playerDetails);
+        console.log(props.pid)
         props.delFav(props.pid);
     };
     return (
@@ -98,7 +99,7 @@ export default function FavCard(props) {
                 <div className="card-title">{playerDetails.name}</div>
                 <div className="card-text">{playerDetails.born}</div>
                 <a className="btn btn-outline-success btn-sm" onClick={handleClickOpen} >Player Stats</a>
-                <a href="" className="btn btn-outline-danger btn-sm" onClick={delFav}><i className="fa fa-trash"></i></a>
+                <button className="btn btn-outline-danger btn-sm" onClick={delFav}><i className="fa fa-trash"></i></button>
             </div>
             <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
                 <AppBar className={classes.appBar}>
@@ -110,7 +111,7 @@ export default function FavCard(props) {
                             {playerDetails.name}
                         </Typography>
                         <Button autofocus >
-                            <a href="" className="btn btn-outline-danger btn-sm"><i className="fa fa-trash"></i></a>
+                            <a href className="btn btn-outline-danger btn-sm"><i className="fa fa-trash"></i></a>
                         </Button>
                     </Toolbar>
                 </AppBar>

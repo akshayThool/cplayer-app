@@ -63,18 +63,19 @@ export default function Card(props) {
         setPlayerDetails(res.data);
         setPlayerBattingODI(res.data.data.batting.ODIs);
         setPlayerBattingListA(res.data.data.batting.listA);
-        console.log(res.data.data.batting.ODIs);
+        //console.log(res.data.data.batting.ODIs);
       })
   }, []);
 
   //console.log(playerBattingODI);
   const saveFav = () => {
+    console.log("save");
     const playerCard = {
       id: props.pid,
       name: props.name
     }
     //console.log(playerDetails);
-    props.readLater(playerCard);
+    props.playerDetails(playerCard);
   };
 
   return (
@@ -102,7 +103,7 @@ export default function Card(props) {
         <div className="card-title">{playerDetails.name}</div>
         <div className="card-text">{playerDetails.born}</div>
         <a className="btn btn-outline-success btn-sm" onClick={handleClickOpen} >Player Stats</a>
-        <a href="" className="btn btn-outline-danger btn-sm" onClick={saveFav}><i className="far fa-heart"></i></a>
+        <button className="btn btn-outline-danger btn-sm" onClick={saveFav}><i className="far fa-heart"></i></button>
       </div>
       <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
         <AppBar className={classes.appBar}>
