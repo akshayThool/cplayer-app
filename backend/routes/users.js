@@ -9,14 +9,15 @@ router.route('/').get((req, res) => {
 });
 
 
-router.route('/add').post((req, res) => { 
+router.route('/add').post((req, res) => {
 
   const name = req.body.name;
   const username = req.body.username;
   const password = req.body.password;
+  const imageUrl = req.body.imageUrl;
 
-  const newUser = new User({name,username,password});
-  const newFavData = new FavPlayer({username})
+  const newUser = new User({ name, username, password, imageUrl });
+  const newFavData = new FavPlayer({ username })
 
   newUser.save()
     .then(() => res.json('User added!'))
@@ -24,8 +25,8 @@ router.route('/add').post((req, res) => {
 
 
   return newFavData.save()
-  .then(() => res.json('newFavData added!'))
-  .catch(err => res.status(400).json('Error: ' + err));
+    .then(() => res.json('newFavData added!'))
+    .catch(err => res.status(400).json('Error: ' + err));
 
 });
 
@@ -37,13 +38,13 @@ router.route('/login').post(async (req, res) => {
 
   console.log("Inside Login")
 
-  const foundUser = await User.findAndValidate(username,password)
-  if(foundUser){
-       console.log("User Exists")
-      //  res.send({'username': username}); 
-        res.send(username); 
-  }else{
-     console.log("False Login")
+  const foundUser = await User.findAndValidate(username, password)
+  if (foundUser) {
+    console.log("User Exists")
+    //  res.send({'username': username}); 
+    res.send(username);
+  } else {
+    console.log("False Login")
   }
   // console.log("req.session.user_id",req.session)
   // console.log("req.session.user_id",req.session.user_id)

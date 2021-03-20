@@ -1,5 +1,5 @@
 import React from 'react'
-import  { useState, useEffect } from 'react'
+
 
 export default function Card(props) {
   // const[description,setdescription]=useState('');
@@ -8,26 +8,27 @@ export default function Card(props) {
   //  setdescription(props.description);
   //  setid(props.id);
   //     });
-  
+
   const saveNews = () => {
-    const newCard={
-      author:props.author,
-      title:props.title,
-      description:props.description,
-      url:props.url,
-      urlToImage:props.urlToImage
+    const newCard = {
+      author: props.author,
+      title: props.title,
+      description: props.description,
+      url: props.url,
+      urlToImage: props.urlToImage
     }
     props.readLater(newCard);
-};
-    return (
-        <div className="card-inline" style={{width:"17rem" ,border:"1px solid black" ,margin:"5px" }}>
-        <div className="card-body ">
-        <div className="card-image-myimg" ><img className="myimg" src={props.urlToImage}/> </div>
+  };
+  return (
+    <div className="card-inline" style={{ width: "17rem", border: "1px solid black", margin: "5px" }}>
+      <div className="card-body ">
+        <div className="card-image-myimg" ><img className="myimg" src={props.urlToImage} alt="news-logo" /> </div>
         <p className="card-title" >{props.title}</p>
         <p className="card-author"><b>{props.author}</b></p>
         <b><h5>Description</h5></b>
         <p className="card-description" >{props.description}</p>
+        <button onClick={saveNews}>Saved Card</button>
       </div>
     </div>
-    )
+  )
 }

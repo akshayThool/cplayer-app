@@ -12,8 +12,8 @@ const port = process.env.PORT || 5000;
 //{origin:'localhost:3000',credentials:false}
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
-app.use(session({secret:'notagoodsecret'}))
+app.use(express.urlencoded({ extended: true }))
+app.use(session({ secret: 'notagoodsecret' }))
 
 // app.use(session({
 //   resave: false,
@@ -33,11 +33,11 @@ app.use(session({secret:'notagoodsecret'}))
 //   console.log("MongoDB database connection established successfully");
 // })
 
-mongoose.connect('mongodb://localhost:27017/cdPlay', {useNewUrlParser: true, useUnifiedTopology: true})
-    .then(()=>{
+mongoose.connect('mongodb://localhost:27017/cdPlay', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
         console.log("Mongo connection open")
     })
-    .catch(err=>{
+    .catch(err => {
         console.log("Error")
         console.log(err)
     })

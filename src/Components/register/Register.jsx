@@ -8,21 +8,22 @@ export default function Register() {
     const [name, setName] = useState('');
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const [imageUrl, setImageUrl] = useState('');
 
     const registerSubmit = e => {
         e.preventDefault();
-        const user = {name,username, password };
+        const user = { name, username, password, imageUrl };
         console.log(user)
 
-        axios.post('http://localhost:5000/users/add',user)
+        axios.post('http://localhost:5000/users/add', user)
             .then((res) => {
                 console.log("Hello")
                 console.log("res")
                 history.push("/login");
                 alert('Registration Done!!! Login');
             })
-            .catch(err=>{
-            console.log(err)
+            .catch(err => {
+                console.log(err)
             })
 
         // axios.post('http://localhost:5000/users/add', user)
@@ -71,6 +72,14 @@ export default function Register() {
                                         className="form-control"
                                         onChange={(e) => { setPassword(e.target.value) }} />
                                 </div>
+                                <div className="form-group">
+                                    <label htmlFor="imageUrlInput">Image Url</label>
+                                    <input type="text" id="imageUrlInput"
+                                        name="imageUrl"
+                                        placeholder="Your Image Url"
+                                        className="form-control"
+                                        onChange={(e) => { setImageUrl(e.target.value) }} />
+                                </div>
                                 <input type="submit" className="btn btn-block login-btn"
                                     value="Register" onClick={registerSubmit} />
                             </form>
@@ -78,8 +87,8 @@ export default function Register() {
                             <a href="/login">Login here.</a>
                         </div>
                     </div>
-                    <div className="col-sm-6 px-0 d-none d-sm-block">
-                        <img src="assets/images/man-cricket.jpeg" alt="man-cricket-side" className="login-img" />
+                    <div className="col-sm-6 px-0 d-none d-md-block">
+                        <img src="assets/images/man-cricket.jpeg" alt="man-cricket-side" className="login-img-register" />
                     </div>
                 </div>
             </div>

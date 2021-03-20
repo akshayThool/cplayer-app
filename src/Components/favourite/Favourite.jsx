@@ -1,7 +1,5 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import ReadCard from '../ReadCard';
-import Card from '../card/Card';
 import FavCard from '../favCard/FavCard';
 
 export default function ReadNow() {
@@ -10,21 +8,21 @@ export default function ReadNow() {
     useEffect(() => {
 
         const data = {
-            username : localStorage.getItem('username'),
-        } 
+            username: localStorage.getItem('username'),
+        }
 
-        console.log('fav username : ',data.username)
+        console.log('fav username : ', data.username)
 
-        axios.post('http://localhost:5000/favPlayers/',data)
+        axios.post('http://localhost:5000/favPlayers/', data)
             .then((res) => {
                 console.log("res");
                 console.log(res.data);
                 setReadnowlist(res.data);
                 readnowlist.map((player) => (
-                   console.log('player.id')
+                    console.log('player.id')
                 ))
             })
-            .catch(err=>{
+            .catch(err => {
                 console.log(err)
             })
 
@@ -37,22 +35,22 @@ export default function ReadNow() {
     const delFav = (id) => {
 
         const data = {
-            username : localStorage.getItem('username'),
-            pid : id
-        } 
-      
-        console.log("card pid",id)
-        console.log(" localStorage.getItem('username')",localStorage.getItem('username'))
-        
-        axios.post('http://localhost:5000/favPlayers/delete',data)
-        .then((res) => {
-            setReadnowlist(res.data);
-            alert('Deleted');
-            console.log(res)
-        })
-        .catch(err=>{
-            console.log(err)
-        })
+            username: localStorage.getItem('username'),
+            pid: id
+        }
+
+        console.log("card pid", id)
+        console.log(" localStorage.getItem('username')", localStorage.getItem('username'))
+
+        axios.post('http://localhost:5000/favPlayers/delete', data)
+            .then((res) => {
+                setReadnowlist(res.data);
+                alert('Deleted');
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
 
         // console.log("I am here");
         // axios.delete(`http://localhost:3100/news/${id}`)

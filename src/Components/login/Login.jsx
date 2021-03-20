@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router';
-import Button from '@material-ui/core/Button';
+
 
 export default function Login() {
   const history = useHistory();
@@ -13,23 +13,25 @@ export default function Login() {
     e.preventDefault();
 
 
-    const userData = {username,password};
+    const userData = { username, password };
     console.log(userData)
-    axios.post('http://localhost:5000/users/login',userData)
+    axios.post('http://localhost:5000/users/login', userData)
       .then((res) => {
-          console.log("res : ",res)
-          console.log("res.data : ",res.data)
-          localStorage.setItem('username',res.data);
-          history.push("/dashboard");
-          const userGetItem = localStorage.getItem('username');
-          console.log('userGetItem : ',userGetItem)
+        console.log("res : ", res)
+        console.log("res.data : ", res.data)
+        localStorage.setItem('username', res.data);
+        history.push("/dashboard");
+        const userGetItem = localStorage.getItem('username');
+        console.log('userGetItem : ', userGetItem)
       })
-      .catch(err=>{
-          console.log(err)
+      .catch(err => {
+        console.log(err)
       })
-      console.log("Hello")
+    console.log("Hello")
 
   }
+
+
 
   return (
     // <div>
@@ -86,7 +88,7 @@ export default function Login() {
               <a href="/register">Register here.</a>
             </div>
           </div>
-          <div className="col-sm-6 px-0 d-none d-sm-block">
+          <div className="col-sm-6 px-0 d-none d-md-block">
             <img src="assets/images/man-cricket.jpeg" alt="man-cricket-side" className="login-img" />
           </div>
         </div>
