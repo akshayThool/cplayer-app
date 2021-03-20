@@ -64,8 +64,8 @@ export default function FavCard(props) {
                 
                 console.log(res.data);
                 setPlayerDetails(res.data);
-                // setPlayerBattingODI(res.data.data.batting.ODIs);
-                // setPlayerBattingListA(res.data.data.batting.listA);
+                setPlayerBattingODI(res.data.data.batting.ODIs);
+                setPlayerBattingListA(res.data.data.batting.listA);
                 // console.log(res.data.data.batting.ODIs);
             })
     }, []);
@@ -250,10 +250,11 @@ export default function FavCard(props) {
                                                         <td>{playerBattingListA.Mat}</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>ODI</th>
-                                                        {/* <td>{playerBattingODI['50']}</td>
+                                                    <th>ODI</th>
+                                                        {playerBattingODI && <>
+                                                        <td>{playerBattingODI['50']}</td>
                                                         <td>{playerBattingODI['100']}</td>
-                                                        <td>{playerBattingODI?.St}</td>
+                                                        <td>{playerBattingODI.St}</td>
                                                         <td>{playerBattingODI.Ct}</td>
                                                         <td>{playerBattingODI['6s']}</td>
                                                         <td>{playerBattingODI['4s']}</td>
@@ -264,7 +265,7 @@ export default function FavCard(props) {
                                                         <td>{playerBattingODI.Runs}</td>
                                                         <td>{playerBattingODI.NO}</td>
                                                         <td>{playerBattingODI.Inns}</td>
-                                                        <td>{playerBattingODI.Mat}</td> */}
+                                                        <td>{playerBattingODI.Mat}</td></>}
                                                     </tr>
                                                 </tbody>
                                             </table>

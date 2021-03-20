@@ -269,9 +269,10 @@ export default function Card(props) {
                             <td>{playerBattingListA.Inns}</td>
                             <td>{playerBattingListA.Mat}</td>
                           </tr>
-                          {playerBattingODI && playerBattingODI.length > 0 &&
+                          {/* {playerBattingODI && playerBattingODI.length > 0 && */}
                             <tr>
                               <th>ODI</th>
+                              {playerBattingODI && <>
                               <td>{playerBattingODI['50']}</td>
                               <td>{playerBattingODI['100']}</td>
                               <td>{playerBattingODI.St}</td>
@@ -285,8 +286,8 @@ export default function Card(props) {
                               <td>{playerBattingODI.Runs}</td>
                               <td>{playerBattingODI.NO}</td>
                               <td>{playerBattingODI.Inns}</td>
-                              <td>{playerBattingODI.Mat}</td>
-                            </tr>}
+                              <td>{playerBattingODI.Mat}</td></>}
+                            </tr>
                         </tbody>
                       </table>
                     </div>
