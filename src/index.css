@@ -293,3 +293,51 @@ footer{
   width: 20x;
   height: 20px;  
 }
+
+.team-info, .team-score{
+  display: flex;
+  margin-top: 10px;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+
+.home-team-container, away-team-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.vs-container{
+ padding-left: 10px;
+ padding-right: 10px;
+ font-weight: bold;
+ text-align: center;
+}
+
+.home-team, .away-team{
+  font-size: 18px;
+  text-align: center;
+}
+
+.team-loc{
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+}
+
+.team-logo{
+  width: 10px;
+  max-height: 10px;
+}
+.series, .match-name{
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+
+.team-score{
+  justify-content: space-around;
+}

@@ -15,10 +15,10 @@ export default function Dashboard() {
         console.log(res.data)
         setTrending(res.data);
       })
-      .catch(err=>{
+      .catch(err => {
         console.log(err)
       })
-  },[]);
+  }, []);
 
 
   const savePlayer = (playerCard) => {
@@ -57,16 +57,18 @@ export default function Dashboard() {
 
     // </div>
     // </div>
-
-    <div className="displayContainer">
-      {trending.map((player) =>
-        <Card
-          key={player.pid}
-          pid={player.pid}
-          name={player.name}
-          readLater={savePlayer}
-        />
-      )}
+    <div className="dashboard-container">
+      <h1>Recommended Players</h1>
+      <div className="displayContainer">
+        {trending.map((player) =>
+          <Card
+            key={player.pid}
+            pid={player.pid}
+            name={player.name}
+            readLater={savePlayer}
+          />
+        )}
+      </div>
     </div>
   )
 }

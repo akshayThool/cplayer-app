@@ -5,6 +5,7 @@ import Header from './Components/header/Header';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Dashboard from './Components/dashboard/Dashboard';
 import Favourite from './Components/favourite/Favourite';
+import CurrentMatches from './Components/CurrentMatches/CurrentMatches';
 import Login from './Components/login/Login';
 import Register from './Components/register/Register';
 import PrivateRoute from './PrivateRoute';
@@ -18,6 +19,7 @@ class App extends React.Component {
           <Route exact path="/" component={Login} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/favourite" component={Favourite} />
+          <PrivateRoute path="/matches" component={CurrentMatches} />
           <Route path="/login" component={Login}></Route>
           <Route path="/register" component={Register}></Route>
         </Switch>
