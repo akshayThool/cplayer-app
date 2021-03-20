@@ -8,11 +8,19 @@ export default function Dashboard() {
   const [playerdb, setPlayerdb] = useState([]);
   // const Api=b909d678e82f454a84d8487e1da59893;
   useEffect(() => {
-    axios.get("https://cricapi.com/api/fantasySquad?apikey=BOBBPOtyxcZsIuxBBpJtj9bJ0843&unique_id=1034809")
+    console.log('Inside the useEffect')
+    axios.get('http://localhost:5000/dashPlayers/')
       .then((res) => {
-        setTrending(res.data.squad);
+        console.log("Hell")
+        console.log(res.data)
+        setTrending(res.data);
       })
-  }, []);
+      .catch(err=>{
+        console.log(err)
+      })
+  },[]);
+
+
   const savePlayer = (playerCard) => {
     console.log("I am in the dashboard");
     axios
@@ -51,18 +59,13 @@ export default function Dashboard() {
     // </div>
 
     <div className="displayContainer">
-      {trending.map((news) =>
-      (news.players.map(player => (
+      {trending.map((player) =>
         <Card
           key={player.pid}
           pid={player.pid}
           name={player.name}
           readLater={savePlayer}
-
-
         />
-      )))
-
       )}
     </div>
   )

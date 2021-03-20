@@ -57,18 +57,22 @@ export default function FavCard(props) {
     const [playerBattingListA, setPlayerBattingListA] = useState([]);
     const [playerBattingODI, setPlayerBattingODI] = useState([]);
     useEffect(() => {
+        
         axios.get(`https://cricapi.com/api/playerStats?apikey=BOBBPOtyxcZsIuxBBpJtj9bJ0843&pid=${props.pid}`)
             .then((res) => {
                 //console.log(res.data);
+                
+                console.log(res.data);
                 setPlayerDetails(res.data);
-                setPlayerBattingODI(res.data.data.batting.ODIs);
-                setPlayerBattingListA(res.data.data.batting.listA);
+                // setPlayerBattingODI(res.data.data.batting.ODIs);
+                // setPlayerBattingListA(res.data.data.batting.listA);
                 // console.log(res.data.data.batting.ODIs);
             })
     }, []);
 
     //console.log(playerBattingODI);
     const delFav = () => {
+
         console.log("Inside delFav favorite Card")
         //console.log(playerDetails);
         console.log(props.pid)

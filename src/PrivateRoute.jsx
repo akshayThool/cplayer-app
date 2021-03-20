@@ -5,10 +5,10 @@ export default function PrivateRoute({component:Component,...rest}) {
     <Route
       {...rest}
       render={(routeProps) =>
-        localStorage.getItem('isAuthenticated') === 'true' ? (
-          <Component {...routeProps} />
-        ) : (
+        localStorage.getItem('username') === null ? (
           <Redirect to='/login' />
+        ) : (
+          <Component {...routeProps} />
         )
       }
     />

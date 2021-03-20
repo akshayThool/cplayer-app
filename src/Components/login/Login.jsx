@@ -7,24 +7,28 @@ export default function Login() {
   const history = useHistory();
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
-  const loginSubmit = () => {
-    const userData = { username, password };
-    axios
-      .post('http://localhost:3001/auth/v1/', userData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
+
+  const loginSubmit = e => {
+
+    e.preventDefault();
+
+
+    const userData = {username,password};
+    console.log(userData)
+    axios.post('http://localhost:5000/users/login',userData)
+      .then((res) => {
+          console.log("res : ",res)
+          console.log("res.data : ",res.data)
+          localStorage.setItem('username',res.data);
+          history.push("/dashboard");
+          const userGetItem = localStorage.getItem('username');
+          console.log('userGetItem : ',userGetItem)
       })
-      .then((response) => {
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('isAuthenticated', true);
-        history.push('/');
-      });
+      .catch(err=>{
+          console.log(err)
+      })
+      console.log("Hello")
 
-  }
-
-  if (localStorage.getItem('isAuthenticated') === 'true') {
-    history.push('/');
   }
 
   return (

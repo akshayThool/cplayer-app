@@ -13,6 +13,7 @@ import Avatar from '@material-ui/core/Avatar';
 import CloseIcon from '@material-ui/icons/Close';
 import CricketBat from './../../icons/cricket-bat.svg';
 
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
@@ -59,7 +60,8 @@ export default function Card(props) {
   useEffect(() => {
     axios.get(`https://cricapi.com/api/playerStats?apikey=BOBBPOtyxcZsIuxBBpJtj9bJ0843&pid=${props.pid}`)
       .then((res) => {
-        //console.log(res.data);
+        // console.log(props.pid);
+        // console.log(res.data);
         setPlayerDetails(res.data);
         setPlayerBattingODI(res.data.data.batting.ODIs);
         setPlayerBattingListA(res.data.data.batting.listA);
@@ -68,15 +70,32 @@ export default function Card(props) {
   }, []);
 
   console.log(playerDetails.data);
+
   const saveFav = () => {
-    console.log("save");
-    const playerCard = {
-      id: props.pid,
-      name: props.name
-    }
-    console.log("I am here");
+
+    const data = {
+      username : localStorage.getItem('username'),
+      fav : { pid:props.pid, name : props.name}
+    } 
+
+    console.log("card pid",props.pid)
+    console.log(" localStorage.getItem('username')",localStorage.getItem('username'))
+    
+    axios.post('http://localhost:5000/favPlayers/add',data)
+      .then((res) => {
+          console.log(res)
+      })
+      .catch(err=>{
+          console.log(err)
+      })
+    // console.log("save");
+    // const playerCard = {
+    //   id: props.pid,
+    //   name: props.name
+    // }
+    // console.log("I am here");
     //console.log(playerDetails);
-    props.playerDetails(playerCard);
+    // props.playerDetails(playerCard);
   };
 
   return (

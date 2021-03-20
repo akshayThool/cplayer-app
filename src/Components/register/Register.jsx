@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { axios } from 'axios';
+import axios from 'axios';
 import { useHistory } from 'react-router';
 
 export default function Register() {
@@ -8,10 +8,40 @@ export default function Register() {
     const [name, setName] = useState('');
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
-    const registerSubmit = () => {
-        console.log("Register clicked")
 
+    const registerSubmit = e => {
+        e.preventDefault();
+        const user = {name,username, password };
+        console.log(user)
+
+        axios.post('http://localhost:5000/users/add',user)
+            .then((res) => {
+                console.log("Hello")
+                console.log("res")
+                history.push("/login");
+                alert('Registration Done!!! Login');
+            })
+            .catch(err=>{
+            console.log(err)
+            })
+
+        // axios.post('http://localhost:5000/users/add', user)
+        //     .then(res => console.log(res.data));
+
+        // axios.get('http://localhost:5000/dashPlayers/')
+        //     .then((res) => {
+        //         console.log("Hell")
+        //         console.log(res.data)
+        //     })
+        //     .catch(err=>{
+        //         console.log(err)
+        //     })
+
+
+        console.log("Register clicked")
     }
+
+
     return (
         <div>
             <div className="container-fluid">
@@ -25,17 +55,18 @@ export default function Register() {
                             <form >
                                 <div className="form-group">
                                     <label htmlFor="nameInput">Name</label>
-                                    <input type="text" id="nameInput" placeholder="Enter your Name" className="form-control"
+                                    <input type="text" id="nameInput" placeholder="Enter your Name" name="name" className="form-control"
                                         onChange={(e) => { setName(e.target.value) }} />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="emailInput">Email</label>
-                                    <input type="text" id="emailInput" placeholder="example@example.com" className="form-control"
+                                    <input type="text" id="emailInput" placeholder="example@example.com" name="username" className="form-control"
                                         onChange={(e) => { setUserName(e.target.value) }} />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="passwordInput">Password</label>
                                     <input type="password" id="passwordInput"
+                                        name="password"
                                         placeholder="Enter your Password"
                                         className="form-control"
                                         onChange={(e) => { setPassword(e.target.value) }} />

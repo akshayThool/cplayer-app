@@ -1,15 +1,18 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from './Login';
+import { Button} from 'react-bootstrap';
 
 export default function Logout() {
 
-    localStorage.clear();
-    window.location.assign("http://localhost:3000/login"); 
-
+    const logout = () =>{
+      localStorage.clear();
+      alert('Logged out')
+      window.location.assign("http://localhost:3000/login"); 
+    }
+    
     return (
         <div>
-        
-      </div>
+          <Button onClick={logout}>Log Out</Button>
+        </div>
     )
 }
