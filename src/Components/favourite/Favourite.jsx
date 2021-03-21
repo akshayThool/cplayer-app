@@ -62,23 +62,24 @@ export default function ReadNow() {
         //     });
     };
     return (
-        <div className='displayContainer'>
+        <div>
+            {readnowlist.length > 0 &&
+                <div className='displayContainer'>
+                    {readnowlist.map((player) => (
+                        <FavCard
+                            key={player.pid}
+                            pid={player.pid}
+                            name={player.name}
+                            delFav={delFav}
 
-            {readnowlist.map((player) => (
-                <FavCard
-                    key={player.pid}
-                    pid={player.pid}
-                    name={player.name}
-                    delFav={delFav}
-
-                />
-            ))
-            }
-            {/* <div className="col-md-6 mt-4">
-                        <AddContact addContact={saveContact}/>
-                </div> */}
-
-
+                        />
+                    ))}
+                </div>}
+            {readnowlist.length === 0 &&
+                <h5>No Favourites Added yet by {localStorage.getItem('username')}</h5>}
         </div>
+
+
+
     )
 }

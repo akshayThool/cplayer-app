@@ -9,6 +9,7 @@ import CurrentMatches from './Components/CurrentMatches/CurrentMatches';
 import Login from './Components/login/Login';
 import Register from './Components/register/Register';
 import PrivateRoute from './PrivateRoute';
+import SearchResult from './Components/SearchResult/SearchResult';
 
 class App extends React.Component {
   render() {
@@ -20,6 +21,7 @@ class App extends React.Component {
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/favourite" component={Favourite} />
           <PrivateRoute path="/matches" component={CurrentMatches} />
+          <PrivateRoute path="/search/:playername" component={SearchResult} />
           <Route path="/login" component={Login}></Route>
           <Route path="/register" component={Register}></Route>
         </Switch>

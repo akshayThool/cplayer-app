@@ -3,7 +3,7 @@ import React from 'react'
 export default function MatchCard(props) {
 	console.log(props.match.scores);
 	return (
-		<div className="card grid-item shadow">
+		<div className="card grid-item shadow match-item">
 			<div className="team-info">
 				<div className="home-team-container">
 					<div className="home-team">

@@ -155,7 +155,7 @@ export default function Card(props) {
               {playerDetails.name}
             </Typography>
             <Button autoFocus >
-              <button className="btn btn-outline-danger btn-sm">Add <i style={{ marginLeft: '5px' }} className="far fa-heart"></i></button>
+              <span className="btn btn-outline-danger btn-sm">Add <i style={{ marginLeft: '5px' }} className="far fa-heart"></i></span>
             </Button>
           </Toolbar>
         </AppBar>
@@ -272,23 +272,24 @@ export default function Card(props) {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th>List A</th>
-                            <td>{playerBatting['listA']['50']}</td>
-                            <td>{playerBatting['listA']['100']}</td>
-                            <td>{playerBatting['listA'].St}</td>
-                            <td>{playerBatting['listA'].Ct}</td>
-                            <td>{playerBatting['listA']['6s']}</td>
-                            <td>{playerBatting['listA']['4s']}</td>
-                            <td>{playerBatting['listA'].SR}</td>
-                            <td>{playerBatting['listA'].BF}</td>
-                            <td>{playerBatting['listA'].Ave}</td>
-                            <td>{playerBatting['listA'].HS}</td>
-                            <td>{playerBatting['listA'].Runs}</td>
-                            <td>{playerBatting['listA'].NO}</td>
-                            <td>{playerBatting['listA'].Inns}</td>
-                            <td>{playerBatting['listA'].Mat}</td>
-                          </tr>
+                          {playerBatting['listA'] &&
+                            <tr>
+                              <th>List A</th>
+                              <td>{playerBatting['listA']['50']}</td>
+                              <td>{playerBatting['listA']['100']}</td>
+                              <td>{playerBatting['listA'].St}</td>
+                              <td>{playerBatting['listA'].Ct}</td>
+                              <td>{playerBatting['listA']['6s']}</td>
+                              <td>{playerBatting['listA']['4s']}</td>
+                              <td>{playerBatting['listA'].SR}</td>
+                              <td>{playerBatting['listA'].BF}</td>
+                              <td>{playerBatting['listA'].Ave}</td>
+                              <td>{playerBatting['listA'].HS}</td>
+                              <td>{playerBatting['listA'].Runs}</td>
+                              <td>{playerBatting['listA'].NO}</td>
+                              <td>{playerBatting['listA'].Inns}</td>
+                              <td>{playerBatting['listA'].Mat}</td>
+                            </tr>}
                           {playerBatting['firstClass'] &&
                             <tr>
                               <th>First Class</th>

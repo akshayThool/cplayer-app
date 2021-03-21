@@ -296,13 +296,23 @@ footer{
 
 .team-info, .team-score{
   display: flex;
-  margin-top: 10px;
+  padding-top: 10px;
   flex-direction: row;
   width: 100%;
   justify-content: center;
   text-align: center;
   padding-bottom: 10px;
   border-bottom: 1px solid #000;
+}
+
+.match-item{
+  height: 340px;
+}
+
+.team-info{
+  background-color: grey;
+  color:white;
+  text-shadow: 1px 1px #000;
 }
 
 .home-team-container, away-team-container{
@@ -315,6 +325,8 @@ footer{
  padding-right: 10px;
  font-weight: bold;
  text-align: center;
+ color: #000;
+ text-shadow: 1px 1px #fff;
 }
 
 .home-team, .away-team{
@@ -328,10 +340,7 @@ footer{
   text-align: center;
 }
 
-.team-logo{
-  width: 10px;
-  max-height: 10px;
-}
+
 .series, .match-name{
   text-align: center;
   padding-bottom: 10px;
@@ -341,3 +350,32 @@ footer{
 .team-score{
   justify-content: space-around;
 }
+
+.logout-btn{
+  margin-left: 35vw;
+}
+
+.search-form{
+  margin-left: 5vw
+}
+.search-form button{
+  width: 15vw;
+}
+
+.search-page-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.search-box-container{
+  padding-bottom: 50px;
+  border-bottom: 2px solid grey;
+}
+.search-box-container .input-group{
+  width: 40%;
+  margin: 0 auto;  
+}
+
+
