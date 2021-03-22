@@ -1,7 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router';
+import { useHistory, Link } from 'react-router-dom';
 
 export default function Register() {
     const history = useHistory();
@@ -9,6 +9,13 @@ export default function Register() {
     const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+    const [loggedUser, setLoggedUser] = useState('');
+
+
+
+    useEffect(() => {
+        setLoggedUser(localStorage.getItem('username'));
+    }, [loggedUser]);
 
     const registerSubmit = e => {
         e.preventDefault();
@@ -18,12 +25,14 @@ export default function Register() {
         axios.post('http://localhost:5000/users/add', user)
             .then((res) => {
                 console.log("Hello")
+                console.log(res);
                 console.log("res")
                 history.push("/login");
                 alert('Registration Done!!! Login');
             })
             .catch(err => {
-                console.log(err)
+                console.log(err);
+                alert('User Already Exists');
             })
 
         // axios.post('http://localhost:5000/users/add', user)
@@ -40,6 +49,15 @@ export default function Register() {
 
 
         console.log("Register clicked")
+    }
+
+    if (loggedUser !== null) {
+        return (
+            <div>
+                <h3>You have already logged in - No need for you to register</h3>
+                <Link to="/dashboard">Click here to go to the dashboard</Link>
+            </div>
+        )
     }
 
 

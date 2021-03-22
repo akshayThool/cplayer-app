@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
     },
     username: {
         type: String,
-        required: [true, 'Email cannot be blank']
+        required: [true, 'Email cannot be blank'],
+        unique: true
     },
     password: {
         type: String,
@@ -21,8 +22,12 @@ const userSchema = new mongoose.Schema({
 
 userSchema.statics.findAndValidate = async function (username, password) {
     const foundUser = await this.findOne({ username });
-    const isValid = await bcrypt.compare(password, foundUser.password);
-    return isValid ? foundUser : false;
+    if (foundUser !== null) {
+        const isValid = await bcrypt.compare(password, foundUser.password);
+        return isValid ? foundUser : false;
+    } else {
+        return false;
+    }
 }
 
 userSchema.statics.findUser = async function (username) {

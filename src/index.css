@@ -307,10 +307,16 @@ footer{
 
 .match-item{
   height: 340px;
+  background: rgb(106,160,245);
+  background: linear-gradient(180deg, rgba(106,160,245,1) 33%, rgba(64,121,210,1) 66%, rgba(36,88,171,1) 100%);
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 5px 10px 8px #888;
 }
 
 .team-info{
-  background-color: grey;
+  background: rgb(113,113,113);
+  background: radial-gradient(circle, rgba(113,113,113,1) 27%, rgba(59,59,59,1) 87%, rgba(0,0,0,1) 100%);
   color:white;
   text-shadow: 1px 1px #000;
 }
@@ -352,7 +358,7 @@ footer{
 }
 
 .logout-btn{
-  margin-left: 35vw;
+  margin-left: 33vw;
 }
 
 .search-form{

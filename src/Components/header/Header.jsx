@@ -7,7 +7,7 @@ export default function Header() {
   const history = useHistory();
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-      <Link to="/dashboard" className="navbar-brand" >C Player
+      <Link to="/dashboard" className="navbar-brand" ><img src="/assets/logo.svg" width="40px" height="40px" alt="" />CPlayer
   </Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>

@@ -128,7 +128,7 @@ export default function FavCard(props) {
 						<Typography variant="h6" className={classes.title}>
 							{playerDetails.name}
 						</Typography>
-						<Button autoFocus >
+						<Button autoFocus onClick={() => { delFav(); handleClose(); }} >
 							<button className="btn btn-outline-danger btn-sm">Remove <i style={{ marginLeft: '5px' }} className="fa fa-trash"></i></button>
 						</Button>
 					</Toolbar>
@@ -354,6 +354,7 @@ export default function FavCard(props) {
 												width="100%" id="dtHorizontalExample" >
 												<thead>
 													<tr>
+														<th>#</th>
 														<th>10</th>
 														<th>5w</th>
 														<th>4w</th>

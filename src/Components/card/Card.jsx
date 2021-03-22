@@ -154,7 +154,7 @@ export default function Card(props) {
             <Typography variant="h6" className={classes.title}>
               {playerDetails.name}
             </Typography>
-            <Button autoFocus >
+            <Button autoFocus onClick={() => { saveFav(); handleClose(); }} >
               <span className="btn btn-outline-danger btn-sm">Add <i style={{ marginLeft: '5px' }} className="far fa-heart"></i></span>
             </Button>
           </Toolbar>
@@ -204,19 +204,19 @@ export default function Card(props) {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/icons/cricket-age.svg" alt="..." className="cricket-bat-logo" />
+                            <img src="/assets/icons/cricket-age.svg" alt="..." className="cricket-bat-logo" />
                           </td>
                           <td>Age</td>
                           <td>{playerDetails.currentAge}</td>
                         </tr>
                         <tr>
-                          <td><img src="assets/icons/cricket-role.svg" alt="..." className="cricket-bat-logo" /></td>
+                          <td><img src="/assets/icons/cricket-role.svg" alt="..." className="cricket-bat-logo" /></td>
                           <td>Playing Role</td>
                           <td>{playerDetails.playingRole}</td>
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/icons/cricket-bat1.svg" alt="..." className="cricket-bat-logo" />
+                            <img src="/assets/icons/cricket-bat1.svg" alt="..." className="cricket-bat-logo" />
                             {/* <CricketBat /> */}
                           </td>
                           <td>
@@ -228,7 +228,7 @@ export default function Card(props) {
                         </tr>
                         <tr>
                           <td>
-                            <img src="assets/icons/cricket-ball.svg" alt="..." className="cricket-bat-logo" />
+                            <img src="/assets/icons/cricket-ball.svg" alt="..." className="cricket-bat-logo" />
                           </td>
                           <td>
                             Bowling Style
@@ -381,6 +381,7 @@ export default function Card(props) {
                         width="100%" id="dtHorizontalExample" >
                         <thead>
                           <tr>
+                            <th>#</th>
                             <th>10</th>
                             <th>5w</th>
                             <th>4w</th>

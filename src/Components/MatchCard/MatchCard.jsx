@@ -1,9 +1,28 @@
 import React from 'react'
 
 export default function MatchCard(props) {
-	console.log(props.match.scores);
+
+
+	Date.prototype.formatMMDDYYYY = function () {
+		var month = new Array();
+		month[0] = "Jan";
+		month[1] = "Feb";
+		month[2] = "Mar";
+		month[3] = "Apr";
+		month[4] = "May";
+		month[5] = "Jun";
+		month[6] = "Jul";
+		month[7] = "Aug";
+		month[8] = "Sept";
+		month[9] = "Oct";
+		month[10] = "Nov";
+		month[11] = "Dec";
+		return (this.getDate() + " " + month[this.getMonth()] + " " + this.getFullYear());
+	}
+	//console.log(new Date(props.match.startDateTime).formatMMDDYYYY());
+
 	return (
-		<div className="card grid-item shadow match-item">
+		<div className="card grid-item match-item">
 			<div className="team-info">
 				<div className="home-team-container">
 					<div className="home-team">
@@ -26,7 +45,7 @@ export default function MatchCard(props) {
 				{props.match.series.shortName}
 			</div>
 			<div className="match-name">
-				<div>{props.match.name}</div>
+				<div>{props.match.name}-{new Date(props.match.startDateTime).formatMMDDYYYY()}</div>
 				<div>{props.match.venue.name}</div>
 			</div>
 			{ props.match.scores &&

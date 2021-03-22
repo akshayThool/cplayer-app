@@ -20,13 +20,21 @@ router.route('/add').post((req, res) => {
   const newFavData = new FavPlayer({ username })
 
   newUser.save()
-    .then(() => res.json('User added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .then(() => {
+      res.json('User added!');
+      return newFavData.save()
+        .then(() => res.json('newFavData added!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => {
+      console.log("Error in adding found");
+      return res.status(400).send({
+        message: 'This is an error!'
+      });
+    });
 
 
-  return newFavData.save()
-    .then(() => res.json('newFavData added!'))
-    .catch(err => res.status(400).json('Error: ' + err));
+
 
 });
 
@@ -45,6 +53,9 @@ router.route('/login').post(async (req, res) => {
     res.send(username);
   } else {
     console.log("False Login")
+    res.status(400).send({
+      message: 'This is an error!'
+    });
   }
   // console.log("req.session.user_id",req.session)
   // console.log("req.session.user_id",req.session.user_id)

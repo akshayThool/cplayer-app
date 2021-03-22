@@ -1,12 +1,20 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 
 export default function Login() {
   const history = useHistory();
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const [loggedUser, setLoggedUser] = useState('');
+
+
+
+  useEffect(() => {
+    setLoggedUser(localStorage.getItem('username'));
+  }, [loggedUser]);
 
   const loginSubmit = e => {
 
@@ -18,6 +26,7 @@ export default function Login() {
     axios.post('http://localhost:5000/users/login', userData)
       .then((res) => {
         console.log("res : ", res)
+        setLoggedUser(username);
         console.log("res.data : ", res.data)
         localStorage.setItem('username', res.data);
         history.push("/dashboard");
@@ -25,11 +34,23 @@ export default function Login() {
         console.log('userGetItem : ', userGetItem)
       })
       .catch(err => {
-        console.log(err)
+        console.log(err.message);
+        alert('Not a valid user');
       })
     console.log("Hello")
 
   }
+
+  if (loggedUser !== null) {
+    return (
+      <div>
+        <h3>You have already logged in</h3>
+        <Link to="/dashboard">Click here to go to the dashboard</Link>
+      </div>
+    )
+  }
+
+
 
 
 
