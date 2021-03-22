@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Logout from "../Logout"
 
 export default function Header() {

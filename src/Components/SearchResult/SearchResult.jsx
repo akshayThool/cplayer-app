@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom';
 import Card from '../card/Card';
+import Loader from 'react-loader-spinner';
+import Loading from '../Loading/Loading';
 
 export default function SearchResult(props) {
 	const { playername } = useParams('playername');
@@ -44,19 +46,21 @@ export default function SearchResult(props) {
 	};
 
 	if (isLoading) {
-		return <h1>Searching...</h1>
+		return (<Loading
+			type="Circles" color="#007bff" height={200} width={200} />);
 	}
 	return (
 		<div className="search-page-container">
 			<div className="search-box-container">
-				<div className="input-group">
-					<input type="search" className="form-control rounded" placeholder="Search Players" aria-label="Search"
-						aria-describedby="search-addon"
-						onChange={(e) => setNewPlayerName(e.target.value)} />
-					<button type="button" className="btn btn-outline-primary"
-						onClick={(e) =>
-							history.replace(`/search/${newPlayerName}`)}>Search Players</button>
-				</div>
+				<form onSubmit={(e) =>
+					history.replace(`/search/${newPlayerName}`)}>
+					<div className="input-group">
+						<input type="search" className="form-control rounded" placeholder="Search Players" aria-label="Search"
+							aria-describedby="search-addon"
+							onChange={(e) => setNewPlayerName(e.target.value)} />
+						<button type="submit" className="btn btn-outline-primary">Search Players</button>
+					</div>
+				</form>
 			</div>
 			{searchResult.length > 0 &&
 				<div className="displayContainer">

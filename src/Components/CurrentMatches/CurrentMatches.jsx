@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Loading from '../Loading/Loading';
 import MatchCard from '../MatchCard/MatchCard';
 
 export default function CurrentMatches() {
@@ -28,7 +29,7 @@ export default function CurrentMatches() {
     }, []);
 
     if (isLoading) {
-        return <h1>Loading...</h1>
+        return <Loading type="Circles" color="#007bff" height={200} width={200} />;
     }
     return (
         <div className="displayContainer">
