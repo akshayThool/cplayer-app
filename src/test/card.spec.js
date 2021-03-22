@@ -1,14 +1,16 @@
 
 import Card from '../Components/card/Card';
-// please add your test cases here
-describe('Testing sum', () => {
-    function sum(a, b) {
-       return a + b;
-    }
+import {BrowserRouter as Router} from 'react-router-dom';
+import React from 'react';
+import '@testing-library/jest-dom/extend-expect'
+import {render} from  '@testing-library/react';
 
-    it('should equal 4',()=>{
-       expect(sum(2,2)).toBe(4);
-      })
-
+describe('Card test cases',() => {
+    test('should have Card component',() => {
+        render(
+            <Router>
+                <Card/>
+            </Router>
+        )
+    });
 });
-export default Card;

@@ -1,14 +1,14 @@
-import Dashboard from '../Components/dashboard/Dashboard';
+import Login from '../Components/login/Login';
 import {BrowserRouter as Router} from 'react-router-dom';
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect'
 import {render} from  '@testing-library/react';
 
-describe('Dashboard test cases',() => {
-    test('should have Dashboard component',() => {
+describe('Login test cases',() => {
+    test('should have Login component',() => {
         render(
             <Router>
-                <Dashboard/>
+                <Login/>
             </Router>
         )
     });
