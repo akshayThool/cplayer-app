@@ -1,14 +1,14 @@
-import Dashboard from '../Components/dashboard/Dashboard';
+import favCard from '../Components/favCard/FavCard';
 import {BrowserRouter as Router} from 'react-router-dom';
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect'
 import {render} from  '@testing-library/react';
 
-describe('Dashboard test cases',() => {
-    test('should have Dashboard component',() => {
+describe('favCard test cases',() => {
+    test('should have favCard component',() => {
         render(
             <Router>
-                <Dashboard/>
+                <favCard/>
             </Router>
         )
     });
