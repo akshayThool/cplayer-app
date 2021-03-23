@@ -15,17 +15,27 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Header />
         <Switch>
           <Route exact path="/" component={Login} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/favourite" component={Favourite} />
           <PrivateRoute path="/matches" component={CurrentMatches} />
           <PrivateRoute path="/search/:playername" component={SearchResult} />
-          <Route path="/login" component={Login}></Route>
-          <Route path="/register" component={Register}></Route>
+          <Route path="/login">
+            <>
+              <Header />
+              <Login />
+              <Footer />
+            </>
+          </Route>
+          <Route path="/register">
+            <>
+              <Header />
+              <Register />
+              <Footer />
+            </>
+          </Route>
         </Switch>
-        <Footer />
       </Router>
 
     )

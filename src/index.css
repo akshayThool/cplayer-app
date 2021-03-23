@@ -359,7 +359,64 @@ footer{
 
 .logout-btn{
   margin-left: 33vw;
-}
+  }
+
+  @media only screen and (max-width: 1510px) {
+    .logout-btn{
+      margin-left: 31vw;
+    }
+  }
+  @media only screen and (max-width: 1473px) {
+    .logout-btn{
+      margin-left: 28vw;
+    }
+  }
+
+  @media only screen and (max-width: 1390px) {
+    .logout-btn{
+      margin-left: 25vw;
+    }
+  }
+
+  @media only screen and (max-width: 1320px) {
+    .logout-btn{
+      margin-left: 22vw;
+    }
+  }
+
+  @media only screen and (max-width: 1345px) {
+    .logout-btn{
+      margin-left: 20vw;
+    }
+  }
+  @media only screen and (max-width: 1270px) {
+    .logout-btn{
+      margin-left: 18vw;
+    }
+  }
+
+  @media only screen and (max-width: 1210px) {
+    .logout-btn{
+      margin-left: 17vw;
+    }
+  }
+
+  @media only screen and (max-width: 1150px) {
+    .logout-btn{
+      margin-left: 14vw;
+    }
+  }
+
+  @media only screen and (max-width: 1095px) {
+    .logout-btn{
+      margin-left: 11vw;
+    }
+  }
+  @media only screen and (max-width: 1045px) {
+    .logout-btn{
+      margin-left: 7vw;
+    }
+  }
 
 .search-form{
   margin-left: 5vw
@@ -392,4 +449,72 @@ footer{
   margin: 0;
 }
 
+.logout-text{
+  min-width: 60px;
+}
 
+footer{
+  text-align: center;
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .logout-btn{
+    margin-left: 14vw;
+  }
+  .search-form{
+    margin-left: 2vw;
+  }
+  .search-btn{
+    min-width: 150px;
+  }
+  .login-img{
+    height: 95vh;
+  }
+  .login-img-register{
+    height: 95vh;
+  }
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .logout-btn{
+    margin-left: 0vw;
+    margin-top: 10px;
+  }
+  .search-form{
+    margin-left: 0vw;
+  }
+  .search-btn{
+    min-width: 130px;
+  }
+
+  .login-section-wrapper{
+    margin-left: -50px;
+  }
+  .login-img, .login-img-register{
+    margin-left: 50px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .login-section-wrapper{
+    margin-left: -50px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .login-section-wrapper{
+    margin-left: -70px;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  .login-section-wrapper{
+    margin-left: -80px;
+    
+  }
+  .login-wrapper{
+    width: 250px;
+  }
+}
